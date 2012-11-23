@@ -15,5 +15,17 @@
   <body onload="onLoad();">
        <h1>Welcome to PhoneGap</h1>
        <h2>Edit assets/www/index.html</h2>
+       
+       <div id="twitter" class="current">
+    <ul id="tweets">
+    </ul>
+    <script id="tmpl-tweets" type="text/x-jquery-tmpl">
+        <li>
+            <a class="avatar" href="#"><img src="${profile_image_url}" alt="${from_user}"></a>
+            <a href="http://twitter.com/${from_user}"><h2>${from_user}</h2></a>
+            <span class="details">${text} </span>
+        </li>
+    </script>
+</div>
   </body>
 </html>
