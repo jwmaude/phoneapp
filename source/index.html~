@@ -1,67 +1,141 @@
+<!DOCTYPE HTML>
 <html>
-<body>
-<style type="text/css">
-body{background:#000;}
-.status{
-color:#fff;
-}    
- 
-#txt
-{
-font-size: 11px;
-font-family: "Segoe UI", Tahoma, Verdana, Arial;
+  <head>
+
+  <style>
+  body{
+    background: #222;
 }
-.status
-{
-min-height:60px;
-padding:6px;
-border-bottom:solid 1px #DEDEDE
-font-size: 11px;
-background:transparent;
-border:#eaeaea 2px;
+header{
+    top:0; left:0;
+    height:45px;
 }
-.status a
-{
-color:#3cf;
-text-decoration:none
-font-size: 11px;
+footer {
+    bottom:0; left:0;
+    height:48px;
+    background-color:#c27b00;
+    border-top:1px solid #eee;
 }
-.status a:hover{
-color:#3cf;
-text-decoration:underline
+header, footer{
+    background-color:#deb500;
+    padding:0;
+    position:absolute;
+    z-index:2;
+    font-size:20px;
+    width:100%;
+    text-align:center;
+    color:#f3f3f3;
+    font-weight:bold;
+    text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+    line-height:45px;
 }
-.twitter_image{
-float:left;
-margin-right:14px;
-width:50px;
-height:50px;
-padding:3px;
+h1{
+    margin:0;
+    text-transform: uppercase;
 }
-.twitter_posted_at{
-font-size:11px;
-color:#999
+#wrapper {
+    position:absolute;
+    z-index:1;
+    top:45px; bottom:48px; left:0;
+    width:100%;
+    overflow:auto;
+}
+#main-content {
+    position:absolute;
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+ body{
+ margin: 0;
+ padding: 0;
+ border: 0;
+}
+body {
+ font-family:Arial,  sans-serif;
+ line-height:1.5;
+ font-size:16px;
+ background: #fff;
+ padding:5px;
+ color: #000;
+ word-wrap: break-word;
+ -webkit-text-size-adjust: none;
+}
+h1, h2, h3, h4, h5, h6{ font-weight: normal; }
+p img { float: left; margin: 0 10px 5px 0; padding: 0; }
+img { border: 0; max-width: 100%; }
+  #tweets {
+    list-style:none;
+    padding:10px;
+}
+#tweets li{
+    font-size:12px;
+    overflow: hidden;
+    margin-bottom:20px;
+}
+#tweets li h2{
+    font-size:14px;
+    margin:0;
+}
+.avatar{
+    margin-right:10px;
+}
+#tweets li a, #tweets li span {
+    float:left;
+}
+#tweets li span {
+    width:70%;
 }
 </style>
-<div id="tweets">Loading</div>
-<script type="text/javascript">
-function ptweet(read)
-{
-var tdata='';
-for(i=0;i<15;i++)
-{
-data =read[i];
-var id=data.id;
-var text=data.text;
-var created_time=data.created_at;
-var screen_name=data.user.screen_name;
-var image=data.user.profile_image_url;
-var source=data.source;
-tdata+="<div class='status' id='"+id+"'><img src="+image+" class='twitter_image'/><a href='http://twitter.com/TodmordenHigh'>"+screen_name+"</a><div id='txt'>"+text+"<div class='twitter_posted_at'><span class='timeago' title='"+created_time+"'></span><i>via "+source+" </i></div></div></div>";
- 
-}
-document.getElementById("tweets").innerHTML=tdata;
-}
+    <title>TodHigh</title>
+  <script src="phonegap-1.2.0.js"></script>
+  <script>
+     function onLoad(){
+          document.addEventListener("deviceready", onDeviceReady, true);
+     }
+     function onDeviceReady(){
+          navigator.notification.alert("PhoneGap is working!!");
+     }
+  </script>
+  </head>
+  <body onload="onLoad();">
+   <header>
+    <h1>TodHigh</h1>
+</header>
+
+       <br><br><h2>Hi James</h2>
+       <script type="text/javascript">
+rssmikle_url="http://todhigh.wordpress.com/feed/";
+rssmikle_frame_width="90%";
+rssmikle_frame_height="95%";
+rssmikle_target="_blank";
+rssmikle_font="";
+rssmikle_font_size="12";
+rssmikle_border="on";
+rssmikle_css_url="";
+rssmikle_title="off";
+rssmikle_title_bgcolor="#0066FF";
+rssmikle_title_color="#FFFFFF";
+rssmikle_title_bgimage="http://";
+rssmikle_item_bgcolor="#FFFFFF";
+rssmikle_item_bgimage="http://";
+rssmikle_item_title_length="20";
+rssmikle_item_title_color="#666666";
+rssmikle_item_border_bottom="on";
+rssmikle_item_description="on";
+rssmikle_item_description_length="40";
+rssmikle_item_description_color="#666666";
+rssmikle_item_date="off";
+rssmikle_item_description_tag="off";
+rssmikle_item_podcast="icon";
+//-->
 </script>
-<script type="text/javascript" src="https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=mrnayak&count=15&callback=ptweet"></script>
-</body>
+<script type="text/javascript" src="http://feed.mikle.com/js/rssmikle.js"></script>
+<div style="font-size:10px; text-align:right;">
+<a href="http://feed.mikle.com/en/" target="_blank" style="color:#CCCCCC;">FeedWind</a>
+<!--Please display the above link in your web page according to Terms of Service.-->
+</div>
+       
+</div>
+  </body>
 </html>
